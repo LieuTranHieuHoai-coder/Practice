@@ -6,17 +6,17 @@ export default class Body extends Component {
     return (
       <div className="container px-lg-5">
         <Banner></Banner>
-        <div class="row g-3">
-          <div class="col-sm-3">
+        <div className="row g-3">
+          <div className="col-sm-3">
             <Item></Item>
           </div>
-          <div class="col-sm-3">
+          <div className="col-sm-3">
             <Item></Item>
           </div>
-          <div class="col-sm-3">
+          <div className="col-sm-3">
             <Item></Item>
           </div>
-          <div class="col-sm-3">
+          <div className="col-sm-3">
             <Item></Item>
           </div>
         </div>
