@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Line from "./line";
+import Contents from "./contents";
 
 export default class BookingTickets extends Component {
   render() {
@@ -36,51 +36,8 @@ export default class BookingTickets extends Component {
               <li className="smallBox redBox">Reserved Seat</li>
               <li className="smallBox emptyBox">Empty Seat</li>
             </ul>
-            <div
-              className="seatStructure txt-center"
-              style={{ overflowX: "auto", width: "100%" }}
-            >
-              <p id="notification" />
-              <Line />
-              <div className="screen">
-                <h2 className="wthree">Screen this way</h2>
-              </div>
-              <button>Confirm Selection</button>
-            </div>
-            <div
-              className="displayerBoxes txt-center"
-              style={{ overflowX: "auto", width: "100%" }}
-            >
-              <table className="Displaytable w3ls-table" width="100%">
-                <tbody>
-                  <tr>
-                    <th>Name</th>
-                    <th>Number of Seats</th>
-                    <th>Seats</th>
-                  </tr>
-                  <tr>
-                    <td>
-                      <textarea id="nameDisplay" defaultValue={""} />
-                    </td>
-                    <td>
-                      <textarea id="NumberDisplay" defaultValue={""} />
-                    </td>
-                    <td>
-                      <textarea id="seatsDisplay" defaultValue={""} />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+            <Contents></Contents>
           </div>
-        </div>
-        <div className="copy-wthree">
-          <p>
-            © 2018 Movie Seat Selection . All Rights Reserved | Design by
-            <a href="http://w3layouts.com/" target="_blank">
-              W3layouts
-            </a>
-          </p>
         </div>
       </div>
     );
