@@ -1,4 +1,4 @@
-import { DELETE, ADD, EDIT } from './constants';
+import { DELETE, ADD, EDIT , GET_NAME, GET_SEATS} from './constants';
 
 const actDelete = (id) => {
     return {
@@ -21,4 +21,17 @@ const actEdit = (data) => {
     };
 }
 
-export { actDelete, actAdd, actEdit };
+const actGetName = (data) => {
+    return {
+        type: GET_NAME,
+        payload: data
+    };
+};
+
+const actGetSeats = (data) => {
+    return {
+        type: GET_SEATS,
+        payload: data
+    };
+};
+export { actDelete, actAdd, actEdit, actGetName, actGetSeats };

@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { actAdd } from "./../redux/actions";
 
-export default class Seat extends Component {
+class Seat extends Component {
   renderItem = () => {
     const { seat, number } = this.props;
     return seat?.map((item, index) => {
-      console.log(number);
+      
       if (number === ""){
         return(
           <td key={index}>
@@ -15,7 +17,7 @@ export default class Seat extends Component {
       else{
         return(
           <td key={index}>
-            <input type="checkbox" className="seats" defaultValue={item.soGhe} />
+            <input type="checkbox" className="seats" onChange={() => this.props.Add(item)} defaultValue={item.soGhe} />
           </td>
         )
       }
@@ -30,3 +32,10 @@ export default class Seat extends Component {
     );
   }
 }
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    Add: (data) => { dispatch(actAdd(data)) },
+  }
+}
+
+export default connect(null, mapDispatchToProps)(Seat);

@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import Contents from "./contents";
+import { connect} from "react-redux";
+import { actGetName, actGetSeats } from "../redux/actions";
 
-export default class BookingTickets extends Component {
+class BookingTickets extends Component {
+  handleOnChangeName = (e) => {
+    console.log(e);
+    this.props.getName(e.target.value);
+  }
+  handleOnChangeSeats = (e) => {
+    console.log(e);
+    this.props.getSeats(e.target.value);
+  }
   render() {
     return (
       <div>
@@ -18,7 +28,7 @@ export default class BookingTickets extends Component {
                     <span>*</span>
                   </label>
                   <br />
-                  <input type="text" id="Username" required />
+                  <input type="text" id="Username" onChange={this.handleOnChangeName} name="name" required />
                 </div>
                 <div className="agileits-right">
                   <label>
@@ -26,7 +36,7 @@ export default class BookingTickets extends Component {
                     Number of Seats
                     <span>*</span>
                   </label>
-                  <input type="number" id="Numseats" required min={1} />
+                  <input type="number" name="seats" id="Numseats" onChange={this.handleOnChangeSeats} required min={1} />
                 </div>
               </div>
               <button>Start Selecting</button>
@@ -43,3 +53,15 @@ export default class BookingTickets extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getName: (data) => {
+      dispatch(actGetName(data));
+    },
+    getSeats: (data) =>{
+      dispatch(actGetSeats(data));
+    }
+  }
+}
+export default connect(null, mapDispatchToProps)(BookingTickets);

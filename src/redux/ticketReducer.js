@@ -7,14 +7,31 @@ const initialState = {
     price: 0,
     totalPrice: 0,
     selectedSeat: null,
-    listSelected: null,
+    listSelected: [],
 }
 
 const ticketReducer = (state = initialState, action) =>{
-    //console.log(state);
+    
     switch(action.type){
+        case ActionType.GET_NAME:{
+            state.name = action.payload;
+            return {
+               ...state
+            }
+        }
+        case ActionType.GET_SEATS:{
+            state.numberOfSeat = action.payload;
+            return { ...state}
+        }
         case ActionType.ADD:
-            return action.payload;
+            {
+                console.log(action.payload);
+                
+                state.listSelected.push(action.payload);
+                return {
+                   ...state
+                }
+            }
         default:
             return state;
     }
