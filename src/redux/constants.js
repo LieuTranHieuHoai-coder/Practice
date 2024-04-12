@@ -7,3 +7,5 @@ export const DELETE = '@book/DELETE';
 export const GET_NAME = '@book/GET_NAME';
 
 export const GET_SEATS = '@book/GET_SEATS';
+
+export const CONFIRM = '@book/CONFIRM';

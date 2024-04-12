@@ -25,13 +25,39 @@ const ticketReducer = (state = initialState, action) =>{
         }
         case ActionType.ADD:
             {
-                console.log(action.payload);
                 
-                state.listSelected.push(action.payload);
+                const array = [...state.listSelected];
+                
+                const index = array.findIndex((item) => item.soGhe === action.payload.soGhe);
+                if(index !== -1){
+                    //array.filter((item) => item.soGhe !== action.payload.soGhe);    
+                    array.splice(index, 1 );
+                }
+                else{
+                    action.payload.daDat = true;
+                    array.push(action.payload);
+                }
+                state.listSelected = array;
+                
                 return {
                    ...state
                 }
             }
+        case ActionType.CONFIRM:{
+            const array = [...state.listSeat];
+            state.listSelected.map((item) => {
+                
+            })
+            const index = array.findIndex((item) => item.soGhe === action.payload.soGhe);
+            if(index !== -1){
+                array[index].danhSachGhe.daDat = action.payload.daDat;
+                state.listSeat = array;
+            }
+            return {
+               ...state
+            }
+        }
+
         default:
             return state;
     }

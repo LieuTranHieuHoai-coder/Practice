@@ -1,4 +1,4 @@
-import { DELETE, ADD, EDIT , GET_NAME, GET_SEATS} from './constants';
+import { DELETE, ADD, EDIT , GET_NAME, GET_SEATS, CONFIRM} from './constants';
 
 const actDelete = (id) => {
     return {
@@ -34,4 +34,11 @@ const actGetSeats = (data) => {
         payload: data
     };
 };
-export { actDelete, actAdd, actEdit, actGetName, actGetSeats };
+
+const actConfirm = () => {
+    return {
+        type: CONFIRM,
+        payload: null
+    };
+}
+export { actDelete, actAdd, actEdit, actGetName, actGetSeats, actConfirm };

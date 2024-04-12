@@ -9,8 +9,15 @@ class BookingTickets extends Component {
     this.props.getName(e.target.value);
   }
   handleOnChangeSeats = (e) => {
-    console.log(e);
-    this.props.getSeats(e.target.value);
+    if(e.target.value <= 120){
+      this.props.getSeats(e.target.value);
+    }
+    else{
+      alert("Please enter a number between 1 and 120");
+      e.target.value = 0;
+      this.props.getSeats(e.target.value);
+    }
+    
   }
   render() {
     return (
@@ -18,7 +25,7 @@ class BookingTickets extends Component {
         <h1>Movie Seat Selection</h1>
         <div className="container">
           <div className="w3ls-reg">
-            <div className="inputForm">
+            <div className="inputForm w-100">
               <h2>fill the required details below and select your seats</h2>
               <div className="mr_agilemain">
                 <div className="agileits-left">
@@ -36,7 +43,7 @@ class BookingTickets extends Component {
                     Number of Seats
                     <span>*</span>
                   </label>
-                  <input type="number" name="seats" id="Numseats" onChange={this.handleOnChangeSeats} required min={1} />
+                  <input type="number" name="seats" id="Numseats" onChange={this.handleOnChangeSeats} required min="1" max="120"/>
                 </div>
               </div>
               <button>Start Selecting</button>

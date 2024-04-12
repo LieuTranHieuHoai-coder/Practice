@@ -15,11 +15,21 @@ class Seat extends Component {
         )
       }
       else{
-        return(
-          <td key={index}>
-            <input type="checkbox" className="seats" onChange={() => this.props.Add(item)} defaultValue={item.soGhe} />
-          </td>
-        )
+        if (item.daDat){
+          return(
+            <td key={index}>
+              <input type="checkbox" className="seats" disabled defaultChecked={item.daDat} defaultValue={item.soGhe}/>
+            </td>
+          )
+        }
+        else{
+          return(
+            <td key={index}>
+              <input type="checkbox" className="seats" defaultValue={item.soGhe} onChange={() => this.props.Add(item)}/>
+            </td>
+          )
+        }
+        
       }
       
     })
@@ -32,10 +42,16 @@ class Seat extends Component {
     );
   }
 }
+
 const mapDispatchToProps = (dispatch) =>{
   return{
     Add: (data) => { dispatch(actAdd(data)) },
   }
 }
 
-export default connect(null, mapDispatchToProps)(Seat);
+const mapStateToProps = (state) =>{
+  return{
+    numberOfSeat: state.ticketReducer.numberOfSeat,
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Seat);
