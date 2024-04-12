@@ -1,11 +1,3 @@
-/*
-Author: W3layout
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
-*/
-
-/*--reset--*/
 
 html,
 body,
@@ -140,7 +132,8 @@ td {
     width: 40px;
     font-weight: 600;
     font-size: 1em;
-    padding-top: 7px;
+    padding-top: 40px;
+    padding-left: 30px;
     height: 24px;
     color: #fff;
 }
@@ -265,10 +258,7 @@ body {
 }
 
 .w3ls-reg {
-    width: 700px;
-    margin: 0 5vw;
     background: rgba(128, 128, 128, 0.34);
-    padding: 3.5vw;
     box-sizing: border-box;
     display: flex;
     display: -webkit-flex;
@@ -464,8 +454,8 @@ input[type=checkbox] {
 
 input[type=checkbox]:before {
     content: "";
-    width: 25px;
-    height: 18px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
     /* Safari 3-4, iOS 1-3.2, Android 1.6- */
     -webkit-border-radius: 5px;

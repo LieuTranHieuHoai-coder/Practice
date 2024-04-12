@@ -5,7 +5,6 @@ import { data } from "jquery";
 
 
 class Contents extends Component {
-  btnConfirm = () => {};
   render() {
     return (
       <>
@@ -25,7 +24,7 @@ class Contents extends Component {
             <tbody>
               <tr>
                 <th>Name</th>
-                <th>Number of Seats</th>
+                <th>Phone Number</th>
                 <th>Seats</th>
               </tr>
               <tr>

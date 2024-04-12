@@ -45,14 +45,15 @@ const ticketReducer = (state = initialState, action) =>{
             }
         case ActionType.CONFIRM:{
             const array = [...state.listSeat];
-            state.listSelected.map((item) => {
-                
+            array.forEach((item) => {
+                state.listSelected.forEach((item1) => {
+                    if (item1.soGhe === item.danhSachGhe.soGhe){
+                        item.danhSachGhe.daDat = item1.daDat;
+                    }
+                })
             })
-            const index = array.findIndex((item) => item.soGhe === action.payload.soGhe);
-            if(index !== -1){
-                array[index].danhSachGhe.daDat = action.payload.daDat;
-                state.listSeat = array;
-            }
+            state.listSeat = array;
+            console.log(state.listSeat);
             return {
                ...state
             }

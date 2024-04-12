@@ -3,6 +3,15 @@ import { connect } from "react-redux";
 import { actAdd } from "./../redux/actions";
 
 class Seat extends Component {
+  handleAdd = (e,data) => {
+    if (this.props.showName === null || this.props.numberOfSeat === 0){
+      alert("Vui lòng nhập đầy đủ thông tin!");
+      e.target.checked = false;
+    }
+    else{
+      this.props.Add(data);
+    }
+  }
   renderItem = () => {
     const { seat, number } = this.props;
     return seat?.map((item, index) => {
@@ -25,7 +34,7 @@ class Seat extends Component {
         else{
           return(
             <td key={index}>
-              <input type="checkbox" className="seats" defaultValue={item.soGhe} onChange={() => this.props.Add(item)}/>
+              <input type="checkbox" className="seats" defaultValue={item.soGhe} onChange={(e) => this.handleAdd(e,item)}/>
             </td>
           )
         }
@@ -52,6 +61,7 @@ const mapDispatchToProps = (dispatch) =>{
 const mapStateToProps = (state) =>{
   return{
     numberOfSeat: state.ticketReducer.numberOfSeat,
+    showName: state.ticketReducer.name,
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Seat);
