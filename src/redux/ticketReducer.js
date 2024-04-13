@@ -8,11 +8,32 @@ const initialState = {
     totalPrice: 0,
     selectedSeat: null,
     listSelected: [],
+    cancelSeat: null,
 }
 
 const ticketReducer = (state = initialState, action) =>{
     
     switch(action.type){
+        case ActionType.DELETE:{
+            state.cancelSeat = action.payload;
+            const listSelected = [...state.listSelected];
+            const cloneListSeat = [...state.listSeat];
+            const index = listSelected.findIndex((item) => item.soGhe === action.payload.soGhe);
+            if(index !== -1){
+                cloneListSeat.forEach((item) => {
+                    item.danhSachGhe.forEach((data) => {
+                        if (data.soGhe === action.payload.soGhe){
+                            data.daDat = false;
+                        }
+                    });
+                })
+                listSelected.splice(index, 1 );
+                state.listSelected = listSelected;
+            }
+
+            state.listSeat = cloneListSeat;
+            return {...state}
+        }
         case ActionType.GET_NAME:{
             state.name = action.payload;
             return {
@@ -27,10 +48,19 @@ const ticketReducer = (state = initialState, action) =>{
             {
                 
                 const array = [...state.listSelected];
+                const cloneListSeat = [...state.listSeat];
                 
                 const index = array.findIndex((item) => item.soGhe === action.payload.soGhe);
                 if(index !== -1){
                     //array.filter((item) => item.soGhe !== action.payload.soGhe);    
+                    cloneListSeat.forEach((item) => {
+                        item.danhSachGhe.forEach((data) =>{
+                            if (data.soGhe === action.payload.soGhe){
+                                data.daDat = false;
+                                state.listSeat = cloneListSeat;
+                            }
+                        })
+                    });
                     array.splice(index, 1 );
                 }
                 else{

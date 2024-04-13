@@ -1,9 +1,9 @@
 import { DELETE, ADD, EDIT , GET_NAME, GET_SEATS, CONFIRM} from './constants';
 
-const actDelete = (id) => {
+const actDelete = (data) => {
     return {
         type: DELETE,
-        payload: id
+        payload: data
     };
 };
 

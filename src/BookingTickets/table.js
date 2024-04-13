@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-
+import { actAdd, actDelete } from './../redux/actions';
 
 class Table extends Component {
     renderTable = () => {
@@ -12,11 +12,21 @@ class Table extends Component {
                     <td>{item.soGhe}</td>
                     <td>{item.gia}</td>
                     <td>
-                        <button className='btn btn-danger'>Hủy</button>
+                        <button className='btn btn-danger' onClick={() => this.props.Delete(item)}>Hủy</button>
                     </td>
                 </tr>
             )
         })
+    }
+    renderTotal = () => {
+        const { showTable } = this.props;
+        const totalPrice = showTable.reduce((total, item) => total + item.gia, 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        console.log(totalPrice);
+        return (
+            <tr>
+                <td colSpan="4" >{totalPrice} VNĐ</td> 
+            </tr>
+        )
     }
     render() {
 
@@ -38,6 +48,9 @@ class Table extends Component {
                             {
                                 this.renderTable()
                             }
+                            {
+                                this.renderTotal()
+                            }
                         </tbody>
                     </table>
                 </div>
@@ -52,4 +65,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, null)(Table);
+const mapDispatchToProps = (dispatch) => {
+    return{
+        Add: (data) => { dispatch(actAdd(data)) },
+        Delete: (data) => { dispatch(actDelete(data)) },
+      };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
