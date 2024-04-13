@@ -20,8 +20,8 @@ const ticketReducer = (state = initialState, action) =>{
             const cloneListSeat = [...state.listSeat];
             const index = listSelected.findIndex((item) => item.soGhe === action.payload.soGhe);
             if(index !== -1){
-                cloneListSeat.forEach((item) => {
-                    item.danhSachGhe.forEach((data) => {
+                cloneListSeat.map((item) => {
+                    item.danhSachGhe.map((data) => {
                         if (data.soGhe === action.payload.soGhe){
                             data.daDat = false;
                         }

@@ -13,19 +13,18 @@ class Line extends Component {
   };
 
   renderLine = () => {
-    const { list, cancelSeat } = this.props;
-    const cloneListSeat = [...list];
-    
-    return cloneListSeat?.map((item, index) => {
+    const { list } = this.props;
+    return list?.map((item, index) => {
       return (
         <tr key={index}>
           <td key={index}>{item.hang}</td>
-          { this.renderSeat(item.danhSachGhe,item.hang) }
+          {this.renderSeat(item.danhSachGhe,item.hang) }
         </tr>
       );
     });
+    
   };
-  renderSeat = (data, hang) => {
+  renderSeat (data, hang) {
     let i = 1;
     return data.map((item) => {
       if (hang === ""){
@@ -35,14 +34,15 @@ class Line extends Component {
           </td>
         )
       }else{
-        if (item.daDat) {
+        if (item.daDat === true) {
           return (
             <td key={i++}>
               <input
                 type="checkbox"
                 className="seats"
                 disabled
-                defaultChecked={item.daDat}
+                onChange={(e) => this.setChecked(e)}
+                checked={item.daDat}
                 defaultValue={item.soGhe}
               />
             </td>
@@ -53,7 +53,7 @@ class Line extends Component {
               <input
                 type="checkbox"
                 className="seats"
-                defaultChecked={item.daDat}
+                checked={item.daDat}
                 defaultValue={item.soGhe}
                 onChange={(e) => this.handleAdd(e, item)}
               />
@@ -80,6 +80,13 @@ class Line extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  showlistSeat: () => {
+    let list = [];
+    state.ticketReducer.listSeat.map((item) => {
+      list.push(item);
+    });
+    return list;
+  },
   list: state.ticketReducer.listSeat,
   cancelSeat: state.ticketReducer.cancelSeat,
   numberOfSeat: state.ticketReducer.numberOfSeat,
