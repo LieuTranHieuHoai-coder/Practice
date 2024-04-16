@@ -73,7 +73,7 @@ class Line extends Component {
         <div className="screen">
           <h2 className="wthree">Screen this way</h2>
         </div>
-        <button onClick={() => this.props.confirm()}>Confirm Selection</button>
+        {/* <button onClick={() => this.props.confirm()}>Confirm Selection</button> */}
       </>
     );
   }

@@ -8,7 +8,7 @@ class Table extends Component {
         return showTable?.map((item, index) => {
             return (
                 <tr key={index}>
-                    <td>{index}</td>
+                    <td>{index + 1}</td>
                     <td>{item.soGhe}</td>
                     <td>{item.gia}</td>
                     <td>
