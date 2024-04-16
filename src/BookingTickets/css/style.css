@@ -1,13 +1,5 @@
 
-
-table {
-    display: table;
-    border-collapse: separate;
-    border-spacing: 2px;
-    border-color: grey;
-}
-
-td {
+.td {
     width: 40px;
     font-weight: 600;
     font-size: 1em;
@@ -177,10 +169,6 @@ ul.seat_w3ls {
 .seats {
     border: 1px solid red;
     background: yellow;
-}
-
-table {
-    text-align: center;
 }
 
 .textarea {

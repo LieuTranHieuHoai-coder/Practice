@@ -20,7 +20,7 @@ class Contents extends Component {
           className="displayerBoxes txt-center"
           style={{ overflowX: "auto", width: "100%" }}
         >
-          <table className="table" width="100%">
+          <table className="table text-center boder" width="100%">
             <tbody>
               <tr>
                 <th>Name</th>

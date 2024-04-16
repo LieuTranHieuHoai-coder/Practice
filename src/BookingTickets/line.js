@@ -17,7 +17,7 @@ class Line extends Component {
     return list?.map((item, index) => {
       return (
         <tr key={index}>
-          <td key={index}>{item.hang}</td>
+          <td className="td" key={index}>{item.hang}</td>
           {this.renderSeat(item.danhSachGhe,item.hang) }
         </tr>
       );
@@ -29,14 +29,14 @@ class Line extends Component {
     return data.map((item) => {
       if (hang === ""){
         return(
-          <td key={i++}>
+          <td key={i++} className="td text-white">
             {i}
           </td>
         )
       }else{
         if (item.daDat === true) {
           return (
-            <td key={i++}>
+            <td key={i++} className="td">
               <input
                 type="checkbox"
                 className="seats checkbox"
@@ -49,7 +49,7 @@ class Line extends Component {
           );
         } else {
           return (
-            <td key={i++}>
+            <td key={i++} className="td">
               <input
                 type="checkbox"
                 className="seats checkbox"
