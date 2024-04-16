@@ -39,7 +39,7 @@ class Line extends Component {
             <td key={i++}>
               <input
                 type="checkbox"
-                className="seats"
+                className="seats checkbox"
                 disabled
                 onChange={(e) => this.setChecked(e)}
                 checked={item.daDat}
@@ -52,7 +52,7 @@ class Line extends Component {
             <td key={i++}>
               <input
                 type="checkbox"
-                className="seats"
+                className="seats checkbox"
                 checked={item.daDat}
                 defaultValue={item.soGhe}
                 onChange={(e) => this.handleAdd(e, item)}
@@ -70,7 +70,7 @@ class Line extends Component {
         <table id="seatsBlock">
           <tbody>{this.renderLine()}</tbody>
         </table>
-        <div className="screen">
+        <div className="screen text-center">
           <h2 className="wthree">Screen this way</h2>
         </div>
         {/* <button onClick={() => this.props.confirm()}>Confirm Selection</button> */}

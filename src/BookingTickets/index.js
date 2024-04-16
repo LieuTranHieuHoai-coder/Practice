@@ -14,30 +14,30 @@ class BookingTickets extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Movie Seat Selection</h1>
+      <div className="body">
+        <h1 className="title">Movie Seat Selection</h1>
         <div className="container">
           <div className="row">
             <div className="w3ls-reg col-md-8">
-              <div className="inputForm w-100">
+              <div className="w-100">
                 <h2>fill the required details below and select your seats</h2>
                 <div className="mr_agilemain">
                   <div className="agileits-left">
-                    <label>
+                    <label className="label">
                       {" "}
                       Name
                       <span>*</span>
                     </label>
                     <br />
-                    <input type="text" id="Username" onChange={this.handleOnChangeName} name="name" required />
+                    <input className="inputData" type="text" id="Username" onChange={this.handleOnChangeName} name="name" required />
                   </div>
                   <div className="agileits-right">
-                    <label>
+                    <label className="label">
                       {" "}
                       Phone Number
                       <span>*</span>
                     </label>
-                    <input type="number" name="seats" pattern="/^\+?\d{1,3}[- ]?\d{1,4}[- ]?\d{2,4}[- ]?\d{2,4}$/" id="Numseats" onChange={this.handleOnChangeSeats} required min="1" max="120" />
+                    <input className="inputData" type="number" name="seats" pattern="/^\+?\d{1,3}[- ]?\d{1,4}[- ]?\d{2,4}[- ]?\d{2,4}$/" id="Numseats" onChange={this.handleOnChangeSeats} required min="1" max="120" />
                   </div>
                 </div>
 

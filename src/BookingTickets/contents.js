@@ -20,7 +20,7 @@ class Contents extends Component {
           className="displayerBoxes txt-center"
           style={{ overflowX: "auto", width: "100%" }}
         >
-          <table className="Displaytable w3ls-table" width="100%">
+          <table className="table" width="100%">
             <tbody>
               <tr>
                 <th>Name</th>
@@ -29,19 +29,21 @@ class Contents extends Component {
               </tr>
               <tr>
                 <td>
-                  <textarea
+                  <textarea className="textarea"
                     id="nameDisplay"
                     defaultValue={this.props.showName}
                   />
                 </td>
                 <td>
                   <textarea
+                    className="textarea"
                     id="NumberDisplay"
                     defaultValue={this.props.showSeat}
                   />
                 </td>
                 <td>
                   <textarea
+                    className="textarea"
                     id="seatsDisplay"
                     defaultValue={this.props.showlistSelected()}
                   />
