@@ -33,7 +33,7 @@ class Table extends Component {
         return (
             <>
                 <div className="col-md-4">
-                    <table className="table">
+                    <table className="table table-bordered text-center">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>

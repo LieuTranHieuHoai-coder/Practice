@@ -8,7 +8,7 @@ import BookingTickets from './BookingTickets';
 function App() {
   return (
     // <Layout></Layout>
-    // <PracticeState></PracticeState>
+    //<PracticeState></PracticeState>
     //<ShopShoes></ShopShoes>
     <BookingTickets></BookingTickets>
   );

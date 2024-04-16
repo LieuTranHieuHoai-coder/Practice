@@ -15,8 +15,8 @@ export default class ListShoes extends Component {
   render() {
     return (
       <>
-        <div class="container">
-            <div class="row g-2">
+        <div className="container">
+            <div className="row g-2">
                 {
                     this.renderShoesItem()
                 }
