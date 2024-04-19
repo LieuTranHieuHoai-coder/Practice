@@ -8,7 +8,7 @@ import Validation from './Validation';
 function App() {
   return (
     // <Layout></Layout>
-    // <PracticeState></PracticeState>
+    //<PracticeState></PracticeState>
     //<ShopShoes></ShopShoes>
     //<BookingTickets></BookingTickets>
     <Validation></Validation>
