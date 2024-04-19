@@ -15,3 +15,5 @@ export const ADD_FORM_DATA = '@form/ADD';
 export const EDIT_FORM_DATA = '@form/EDIT';
 
 export const DELETE_FORM_DATA = '@form/DELETE';
+
+export const SEARCH_FORM_DATA = '@form/SEARCH';

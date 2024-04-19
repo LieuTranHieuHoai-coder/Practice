@@ -1,6 +1,6 @@
-import { DELETE, ADD, EDIT , GET_NAME, GET_SEATS, CONFIRM } from './constants';
+import { DELETE, ADD, EDIT, GET_NAME, GET_SEATS, CONFIRM } from './constants';
 //form validation
-import { DELETE_FORM_DATA, ADD_FORM_DATA, EDIT_FORM_DATA} from './constants';
+import { DELETE_FORM_DATA, ADD_FORM_DATA, EDIT_FORM_DATA, SEARCH_FORM_DATA } from './constants';
 const actDelete = (data) => {
     return {
         type: DELETE,
@@ -64,4 +64,22 @@ const actEditForm = (data) => {
     };
 }
 
-export { actDelete, actAdd, actEdit, actGetName, actGetSeats, actConfirm, actDeleteForm, actAddForm, actEditForm};
+const actSearchForm = (data) => {
+    return {
+        type: SEARCH_FORM_DATA,
+        payload: data
+    };
+}
+
+export { 
+    actDelete, 
+    actAdd, 
+    actEdit, 
+    actGetName, 
+    actGetSeats, 
+    actConfirm, 
+    actDeleteForm, 
+    actAddForm, 
+    actEditForm, 
+    actSearchForm 
+};
