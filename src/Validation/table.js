@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { actSearchForm, actDeleteForm } from "../redux/actions";
+import Modal from './Modal';
 
 class Table extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            keywords: ''
+            keywords: '',
+            edituser: null,
         }
+    }
+    getedituser = (data) =>{
+        this.setState(
+            {
+                edituser: data
+            }
+        );
     }
     renderList = () => {
         const { list, keywords } = this.props;
@@ -35,8 +44,9 @@ class Table extends Component {
                                 <div className="col">
                                     <button
                                         type="button"
+                                        data-bs-toggle="modal" data-bs-target="#editForm"
                                         className="btn btn-primary w-100"
-                                        onClick={() => this.props.delete(item.id)}
+                                        onClick={() => this.getedituser(item)}
                                     >
                                         Edit
                                     </button>
@@ -72,10 +82,11 @@ class Table extends Component {
             <>
                 <div className="input-group rounded">
                     <input type="search" className="form-control rounded" onChange={this.handleKeyWord} placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-                    <span className="input-group-text border-0" id="search-addon">
-                        <i className="fas fa-search" />
+                    <span className="input-group-text border-0 bg-primary" id="search-addon">
+                        <i className="fas fa-search text-white" />
                     </span>
                 </div>
+                <br/>
                 <div className="row container-fluid">
                     <table className="table text-center table-bordered" width="100%">
                         <tbody>
@@ -92,6 +103,7 @@ class Table extends Component {
                         </tbody>
                     </table>
                 </div>
+               <Modal sendedituser={this.state.edituser}/> 
             </>
         )
     }

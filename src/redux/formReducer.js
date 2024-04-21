@@ -17,6 +17,7 @@ const formReducer = (state = initialState, action) => {
         }
         case ActionType.ADD_FORM_DATA:
             const array = [...state.listSV];
+            
             array.push(action.payload);
             state.listSV = array;
             return {
@@ -32,6 +33,19 @@ const formReducer = (state = initialState, action) => {
                 ...state
             }
         case ActionType.EDIT_FORM_DATA:
+            const array3 = [...state.listSV];
+            const index = array3.findIndex((item) => item.id === action.payload.id);
+            if (index!== -1){
+                array3.forEach((item) =>{
+                    if (item.id === action.payload.id){
+                        item.masv = action.payload.masv;
+                        item.fullname = action.payload.fullname;
+                        item.phone = action.payload.phone;
+                        item.email = action.payload.email;
+                    }
+                });
+                state.listSV = array3;
+            }
             return {
                 ...state
             }

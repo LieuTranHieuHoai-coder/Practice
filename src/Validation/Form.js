@@ -7,6 +7,7 @@ class Form extends Component {
         super(props);
         this.state = {
             values: {
+                id: "",
                 masv: "",
                 fullname: "",
                 phone: "",
@@ -102,7 +103,9 @@ class Form extends Component {
             if (index !== -1) {
                 alert("Mã sinh viên đã toàn tại");
             } else {
-                this.props.add(this.state.values);
+                const date = new Date();
+                const newItem = {...this.state.values, id: date.getTime()};
+                this.props.add(newItem);
             }
 
 
