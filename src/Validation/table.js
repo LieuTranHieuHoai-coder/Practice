@@ -12,6 +12,7 @@ class Table extends Component {
         }
     }
     getedituser = (data) =>{
+        //console.log(data);
         this.setState(
             {
                 edituser: data
@@ -103,7 +104,7 @@ class Table extends Component {
                         </tbody>
                     </table>
                 </div>
-               <Modal sendedituser={this.state.edituser}/> 
+               <Modal sendedituser={this.state?.edituser}/> 
             </>
         )
     }
