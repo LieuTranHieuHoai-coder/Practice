@@ -8,7 +8,7 @@ class Modal extends Component {
     this.state = {
       edituser: null,
       values: {
-        id: "",
+        id: null,
         masv: "",
         fullname: "",
         phone: "",
@@ -70,26 +70,42 @@ class Modal extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const index = this.props.list.findIndex(
-      (item) => item.masv === this.state.values.masv
-    );
-    if (index !== -1) {
-      alert("Mã sinh viên đã tồn tại");
-    } else {
-      this.props.editFormData(this.state.values);
+    let isValid = true;
+    Object.values(this.state.errors).forEach((item) => {
+      if (item) {
+        isValid = false;
+        this.setState({
+            values: {
+              id: this.props.sendedituser?.id,
+              masv: this.props.sendedituser?.masv,
+              fullname: this.props.sendedituser?.fullname,
+              phone: this.props.sendedituser?.phone,
+              email: this.props.sendedituser?.email,
+            },
+        });
+      }
+    });
+    if (isValid) {
+      const index = this.props.list.findIndex(
+        (item) => item.masv === this.state.values.masv
+      );
+      if (index !== -1) {
+        alert("Mã sinh viên đã tồn tại");
+      } else {
+        this.props.editFormData(this.state.values);
+      }
     }
   };
 
   UNSAFE_componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     const { sendedituser } = nextProps;
     this.setState({
       values: {
-        id: sendedituser.id,
-        masv: sendedituser.masv,
-        fullname: sendedituser.fullname,
-        phone: sendedituser.phone,
-        email: sendedituser.email,
+        id: sendedituser?.id,
+        masv: sendedituser?.masv,
+        fullname: sendedituser?.fullname,
+        phone: sendedituser?.phone,
+        email: sendedituser?.email,
       },
     });
   }
